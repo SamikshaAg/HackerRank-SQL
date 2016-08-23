@@ -1,0 +1,1 @@
+set @sn=0; select round(lat_n,4) from (select @sn:=@sn+1 as serial,lat_n from station order by lat_n) as t1, (select ceil((count(*)+1)/2) as cnt from station) as t2 where serial=cnt;
